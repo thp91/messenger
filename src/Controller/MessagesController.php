@@ -17,4 +17,14 @@ class MessagesController extends AbstractController
             'controller_name' => 'MessagesController',
         ]);
     }
+
+    /**
+     * @Route("/messages/{id}", name="app_messages_show")
+     */
+    public function channel($id): Response
+    {
+        return $this->render('messages/channel.html.twig', [
+            'controller_name' => 'ChannelController number' . $id,
+        ]);
+    }
 }
