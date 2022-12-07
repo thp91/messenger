@@ -13,8 +13,12 @@ class HomeController extends AbstractController
      */
     public function index(): Response
     {
+
+        $users = $this->getDoctrine()->getRepository(User::class);
+
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'users' => $users
         ]);
     }
 }

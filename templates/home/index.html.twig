@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello HomeController!{% endblock %}
+{% block title %}Hello!{% endblock %}
 
 {% block body %}
 <style>
@@ -9,13 +9,16 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>Hello {% if app.user is null %} {{ controller_name }} {% else %} {{ app.user.pseudo }} {% endif %}! ✅</h1>
+
+    {{ users.pseudo }}
 
     This friendly message is coming from:
     <ul>
         <a href="{{ path('app_login') }}">Login</a>
         <a href="{{ path('app_register') }}">Register</a>
         <a href="{{ path('app_messages') }}">Message</a>
+        <a href="{{ path('app_logout') }}">Se déconnecter</a>
     </ul>
 </div>
 {% endblock %}
